@@ -66,9 +66,9 @@ while RUNNING:
     ### update section of game loop (if updates take longer the 1/30th of a second, you will get laaaaag...)
     all_sprites.update()
 
-    blocks_hit_list = pg.sprite.spritecollide(player, enemies, True)
+    blocks_hit_list = pg.sprite.spritecollide(player, enemies, False)
     for block in blocks_hit_list:
-        # print(enemies)
+        print(enemies)
         pass
     ### draw and render section of game loop
     screen.fill(BLUE)
