@@ -7,7 +7,10 @@ import os
 # import settings 
 from settings import *
 from sprites import *
+from random import randint
 # from pg.sprite import Sprite
+
+vec = pg.math.Vector2
 
 # set up assets folders
 game_folder = os.path.dirname(__file__)
@@ -31,6 +34,14 @@ enemies = pg.sprite.Group()
 
 player = Player()
 invader = Mob()
+invader.vel = vec(randint(8,80),randint(8,80))
+
+for i in range(0,10):
+    m = Mob()
+    m.vel = vec(randint(8,80),randint(8,80))
+    all_sprites.add(m)
+    enemies.add(m)
+
 # testSprite = Sprite()
 # testSprite.image = pg.Surface((50,50))
 # testSprite.image.fill(GREEN)
