@@ -11,9 +11,11 @@ vec = pg.math.Vector2
 # create a player
 
 class Player(Sprite):
-    def __init__(self):
+    def __init__(self, image_file):
         Sprite.__init__(self)
-        self.image = pg.Surface((50,50))
+        self.image_file = image_file
+        # self.image = pg.Surface((50,50))
+        self.image = pg.transform.scale(image_file, (50, 38))
         self.image.fill(BLACK)
         self.rect = self.image.get_rect()
         self.pos = vec(WIDTH/2, HEIGHT/2)

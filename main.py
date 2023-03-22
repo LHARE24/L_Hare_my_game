@@ -4,6 +4,7 @@
 import pygame as pg
 import random
 import os
+from os import path
 # import settings 
 from settings import *
 from sprites import *
@@ -29,10 +30,13 @@ screen = pg.display.set_mode((WIDTH, HEIGHT))
 pg.display.set_caption("My first game...")
 clock = pg.time.Clock() 
 
+player_img = pg.image.load(path.join(img_folder, "bell-ar-man.png")).convert()
+
 all_sprites = pg.sprite.Group()
 enemies = pg.sprite.Group()
 
-player = Player()
+# player is instantiated
+player = Player(player_img)
 invader = Mob()
 invader.vel = vec(randint(8,80),randint(8,80))
 
@@ -67,12 +71,14 @@ while RUNNING:
     all_sprites.update()
 
     blocks_hit_list = pg.sprite.spritecollide(player, enemies, False)
+    
     for block in blocks_hit_list:
         print(enemies)
         pass
     ### draw and render section of game loop
     screen.fill(BLUE)
     all_sprites.draw(screen)
+    screen.blit(player_img, player.rect)
     # double buffering draws frames for entire screen
     pg.display.flip()
     # pg.display.update() -> only updates a portion of the screen
