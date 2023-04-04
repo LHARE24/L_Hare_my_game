@@ -7,14 +7,13 @@ from random import randint
 
 
 vec = pg.math.Vector2
-
 # player class
 
 class Player(Sprite):
     def __init__(self, game):
         Sprite.__init__(self)
         # these are the properties
-        self.game = game
+        self.game = game  
         self.image = pg.Surface((50,50))
         self.image.fill(BLACK)
         self.rect = self.image.get_rect()

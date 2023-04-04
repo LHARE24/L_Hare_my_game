@@ -4,7 +4,9 @@
 My goal is: 
 
 Create doodle jump
-Sliding background, powerups. different types of platforms
+Sliding background, different types of platforms
+
+Reach Goal: powerups
 
 '''
 
@@ -35,7 +37,7 @@ class Game:
         self.screen = pg.display.set_mode((WIDTH, HEIGHT))
         pg.display.set_caption("my game")
         self.clock = pg.time.Clock()
-        self.running = True
+        self.running = True 
         print(self.screen)
     def new(self):
         # starting a new game
@@ -45,7 +47,7 @@ class Game:
         self.enemies = pg.sprite.Group()
         self.player = Player(self)
         self.plat1 = Platform(WIDTH, 50, 0, HEIGHT-50, (150,150,150), "normal")
-        # self.plat1 = Platform(WIDTH, 50, 0, HEIGHT-50, (150,150,150), "normal")
+        self.plat1 = Platform(WIDTH, 50, 0, HEIGHT-50, (150,150,150), "normal")
         self.all_sprites.add(self.plat1)
 
         self.platforms.add(self.plat1)
@@ -55,7 +57,7 @@ class Game:
             p = Platform(*plat)
             self.all_sprites.add(p)
             self.platforms.add(p)
-        for i in range(0,10):
+        for i in range(0,20):
             m = Mob(20,20,(0,255,0))
             self.all_sprites.add(m)
             self.enemies.add(m)
