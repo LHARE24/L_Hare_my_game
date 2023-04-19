@@ -3,8 +3,7 @@
 '''
 My goal is: 
 
-Create doodle jump
-Sliding background, different types of platforms
+Create doodle jump type game
 
 Reach Goal: powerups
 
@@ -28,7 +27,6 @@ game_folder = os.path.dirname(__file__)
 img_folder = os.path.join(game_folder, "img")
 
 # create game class in order to pass properties to the sprites file
-
 class Game:
     def __init__(self):
         # init game window etc.
@@ -53,11 +51,12 @@ class Game:
         self.platforms.add(self.plat1)
         
         self.all_sprites.add(self.player)
+            
         for plat in PLATFORM_LIST:
             p = Platform(*plat)
             self.all_sprites.add(p)
             self.platforms.add(p)
-        for i in range(0,20):
+        for i in range(0,0):
             m = Mob(20,20,(0,255,0))
             self.all_sprites.add(m)
             self.enemies.add(m)
@@ -96,20 +95,19 @@ class Game:
     def draw(self):
         self.screen.fill(BLUE)
         self.all_sprites.draw(self.screen)
-        # is this a method or a function?
         pg.display.flip()
-    def draw_text(self, text, size, color, x, y):
-        font_name = pg.font.match_font('arial')
-        font = pg.font.Font(font_name, size)
-        text_surface = font.render(text, True, color)
-        text_rect = text_surface.get_rect()
-        text_rect.midtop = (x,y)
-        self.screen.blit(text_surface, text_rect)
+    # def draw_text(self, text, size, color, x, y):
+    #     font_name = pg.font.match_font('arial')
+    #     font = pg.font.Font(font_name, size)
+    #     text_surface = font.render(text, True, color)
+    #     text_rect = text_surface.get_rect()
+    #     text_rect.midtop = (x,y)
+    #     self.screen.blit(text_surface, text_rect)
     def get_mouse_now(self):
         x,y = pg.mouse.get_pos()
         return (x,y)
 
-# instantiate the game class...
+# instantiate the game class
 g = Game()
 
 # kick off the game loop

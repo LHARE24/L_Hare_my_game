@@ -7,8 +7,8 @@ from random import randint
 
 
 vec = pg.math.Vector2
-# player class
 
+# player class
 class Player(Sprite):
     def __init__(self, game):
         Sprite.__init__(self)
@@ -62,7 +62,7 @@ class Player(Sprite):
         if self.rect.y < 0:
             print("i am off the top of the screen...")
     def mob_collide(self):
-            hits = pg.sprite.spritecollide(self, self.game.enemies, True)
+            hits = pg.sprite.spritecollide(self, self.game.enemies, False)
             if hits:
                 print("you collided with an enemy...")
                 self.game.score += 1
@@ -89,28 +89,29 @@ class Mob(Sprite):
         self.vel = vec(randint(1,5),randint(1,5))
         self.acc = vec(1,1)
         self.cofric = 0.01
-    # ...
     def inbounds(self):
         if self.rect.x > WIDTH:
             self.vel.x *= -1
-            # self.acc = self.vel * -self.cofric
+            self.acc = self.vel * -self.cofric
         if self.rect.x < 0:
             self.vel.x *= -1
-            # self.acc = self.vel * -self.cofric
+            self.acc = self.vel * -self.cofric
         if self.rect.y < 0:
             self.vel.y *= -1
-            # self.acc = self.vel * -self.cofric
+            self.acc = self.vel * -self.cofric
         if self.rect.y > HEIGHT:
             self.vel.y *= -1
-            # self.acc = self.vel * -self.cofric
+            self.acc = self.vel * -self.cofric
     def update(self):
         self.inbounds()
         # self.pos.x += self.vel.x
         # self.pos.y += self.vel.y
         self.pos += self.vel
         self.rect.center = self.pos
+       
 
-# create a new platform class...
+
+# create a new platform class
 
 class Platform(Sprite):
     def __init__(self, x, y, width, height, color, variant):
