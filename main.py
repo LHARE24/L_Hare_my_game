@@ -95,8 +95,8 @@ class Game:
     def draw(self):
         self.screen.fill(BLUE)
         self.all_sprites.draw(self.screen)
+        self.draw_text(str("Score = 0"), 30, WHITE, WIDTH/2, HEIGHT/2)
         pg.display.flip()
-        self.draw_text(str("Score"), 24, WHITE, WIDTH/2, HEIGHT/2)
     def draw_text(self, text, size, color, x, y):
         font_name = pg.font.match_font('arial')
         font = pg.font.Font(font_name, size)
