@@ -96,13 +96,14 @@ class Game:
         self.screen.fill(BLUE)
         self.all_sprites.draw(self.screen)
         pg.display.flip()
-    # def draw_text(self, text, size, color, x, y):
-    #     font_name = pg.font.match_font('arial')
-    #     font = pg.font.Font(font_name, size)
-    #     text_surface = font.render(text, True, color)
-    #     text_rect = text_surface.get_rect()
-    #     text_rect.midtop = (x,y)
-    #     self.screen.blit(text_surface, text_rect)
+        self.draw_text(str("Score"), 24, WHITE, WIDTH/2, HEIGHT/2)
+    def draw_text(self, text, size, color, x, y):
+        font_name = pg.font.match_font('arial')
+        font = pg.font.Font(font_name, size)
+        text_surface = font.render(text, True, color)
+        text_rect = text_surface.get_rect()
+        text_rect.midtop = (x,y)
+        self.screen.blit(text_surface, text_rect)
     def get_mouse_now(self):
         x,y = pg.mouse.get_pos()
         return (x,y)
