@@ -91,7 +91,7 @@ class Game:
                 else:
                     self.player.pos.y = hits[0].rect.top
                     self.player.vel.y = 0
-
+# drawing everything on the screen
     def draw(self):
         self.screen.fill(BLUE)
         self.all_sprites.draw(self.screen)
