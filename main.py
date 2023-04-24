@@ -82,6 +82,7 @@ class Game:
         self.all_sprites.update()
         if self.player.vel.y > 0:
             hits = pg.sprite.spritecollide(self.player, self.platforms, False)
+            # self.score += 1
             if hits:
                 if hits[0].variant == "disappearing":
                     hits[0].kill()
@@ -91,11 +92,12 @@ class Game:
                 else:
                     self.player.pos.y = hits[0].rect.top
                     self.player.vel.y = 0
+        
 # drawing everything on the screen
     def draw(self):
         self.screen.fill(BLUE)
         self.all_sprites.draw(self.screen)
-        self.draw_text(str("Score = 0"), 30, WHITE, 725, 10)
+        self.draw_text("score",str(self.score), 30, WHITE, 725, 10)
         pg.display.flip()
     def draw_text(self, text, size, color, x, y):
         font_name = pg.font.match_font('arial')
