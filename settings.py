@@ -1,5 +1,5 @@
 # File Created by Liam Hare
-
+import random
 WIDTH = 800
 HEIGHT = 600
 PLAYER_ACC = 0.5

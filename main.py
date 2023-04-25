@@ -9,8 +9,6 @@ Reach Goal: powerups
 
 '''
 
-
-
 # import libs
 import pygame as pg
 import random
@@ -20,7 +18,7 @@ from os import path
 from settings import *
 from sprites import *
 from random import randint
-# from pg.sprite import Sprite
+
 
 # set up assets folders
 game_folder = os.path.dirname(__file__)
